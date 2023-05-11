@@ -72,6 +72,10 @@
     overflow: auto;
 
     padding-bottom: 14px;
+    
+    &__inner {
+      display: grid;
+    }
 
     &__row {
       grid-template-columns: repeat(auto-fill, 1fr);
