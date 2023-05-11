@@ -1,0 +1,77 @@
+@use "src/assets/scss/color-kit";
+@import "src/assets/scss/vars";
+
+.navigation {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+    padding: 10px 16px 10px 10px;
+    border-radius: 8px;
+
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #9197B3;
+
+    cursor: pointer;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out;
+
+    &.active,
+    &:hover {
+      color: #FFF;
+      background-color: color-kit.$accent;
+    }
+  }
+
+  &__item-inner {
+    display: flex;
+    align-items: center;
+    gap: 1rem
+  }
+  
+  &__item-icon {
+    display: flex;
+  }
+
+  &__item-title {
+
+  }
+
+  &__item-arrow {
+    display: flex;
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .navigation {
+    &__item {
+      padding: 10px;
+    }
+
+    &__item-title,
+    &__item-arrow {
+      display: none;
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .navigation {
+    &__list {
+      gap: 8px;
+      flex-direction: row;
+    }
+
+    &__item {
+      padding: 4px;
+    }
+  }
+}

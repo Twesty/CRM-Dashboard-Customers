@@ -1,0 +1,38 @@
+@use "src/assets/scss/color-kit";
+
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: #404B52;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+
+  &__item {
+    min-width: 26px;
+    height: 26px;
+    padding: 6px 9px;
+
+    border: 1px solid map-get(color-kit.$border, light);
+    border-radius: 4px;
+    box-sizing: border-box;
+
+    background-color: #F5F5F5;
+
+    cursor: pointer;
+    transition: color .15s ease-in-out;
+
+    &:hover {
+      background-color: map-get(color-kit.$border, light);
+    }
+
+    &.active {
+      color: #FFF;
+      background-color: color-kit.$accent;
+      border-color: transparent;
+    }
+  }
+}

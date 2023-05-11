@@ -1,0 +1,73 @@
+@use "./assets/scss/color-kit";
+@import "./assets/scss/vars";
+
+.main {
+  display: flex;
+  
+  &__sidebar {
+    width: 100%;
+    max-width: 306px;
+    height: 100vh;
+
+    background-color: map-get(color-kit.$background, section);
+    box-shadow: 0 10px 60px rgba(226, 236, 249, 0.5);
+
+    z-index: 1;
+  }
+
+  &__content {
+    height: 100vh;
+    flex-grow: 1;
+    overflow: auto;
+
+    padding: 2.5rem 4.375rem 5.875rem;
+
+    box-sizing: border-box;
+  }
+
+  &__welcome {
+    margin-bottom: 3.125rem;
+
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  &__table {
+
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .main {
+    &__welcome {
+      margin-bottom: 16px;
+    }
+
+    &__content {
+      padding: 24px;
+    }
+
+    &__sidebar {
+      width: initial;
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .main {
+    flex-direction: column;
+
+    &__sidebar {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+    }
+
+    &__content {
+      height: initial;
+      padding: 24px 16px;
+    }
+  }
+}

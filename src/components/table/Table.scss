@@ -1,0 +1,93 @@
+@use "src/assets/scss/color-kit";
+@import "src/assets/scss/vars";
+
+.table {
+  font-size: 0.875rem;
+  font-weight: 500;
+
+  &__header {
+    padding: 0 2.5rem 0.875rem;
+    border-bottom: 1px solid map-get(color-kit.$border, light);
+  }
+
+  &__header-item {
+    color: map-get(color-kit.$text, secondary);
+  }
+
+  &__content {
+    padding: 0 2.5rem;
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: minmax(120px, 162px) minmax(80px, 120px) minmax(110px, 146px) minmax(140px, 200px) minmax(120px, 142px) 1fr minmax(60px, 80px);
+    grid-gap: 10px;
+    align-items: center;
+  }
+
+  &__customer {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid map-get(color-kit.$border, light);
+  }
+
+  &__item,
+  &__header-item {
+    &:last-child {
+      display: inline-flex;
+      justify-content: center;
+    }
+  }
+
+  &__status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 80px;
+    min-height: 29px;
+
+    border-radius: 4px;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+
+    text-align: center;
+    line-height: 1;
+
+    &.Active {
+      color: #008767;
+      border-color: #00B087;
+      background-color: rgba(22, 192, 152, 0.38);
+    }
+
+    &.Inactive {
+      color: #DF0404;
+      border-color: #DF0404;
+      background-color: #FFC5C5;
+    }
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .table {
+    overflow: auto;
+
+    padding-bottom: 14px;
+
+    &__row {
+      grid-template-columns: repeat(auto-fill, 1fr);
+    }
+    
+    &__item:last-child {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    &__item-title {
+      display: block;
+    }
+
+    &__customer {
+      padding: 12px 0;
+    }
+  }
+}
